@@ -41,8 +41,8 @@ export default Component.extend({
 
   // OIDC roles in the JWT/OIDC backend are those with an authUrl,
   // those that are JWT type will 400 when trying to fetch the role
-  isOIDC: computed('role', 'role.authUrl', function() {
-    return this.role && this.role.authUrl;
+  isOIDC: computed('selectedAuthType', function() {
+    return this.selectedAuthType === 'oidc';
   }),
 
   getWindow() {
