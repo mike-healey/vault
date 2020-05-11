@@ -165,7 +165,7 @@ func (c *SharedConfig) Sanitized() map[string]interface{} {
 		for _, ln := range c.Listeners {
 			cleanLn := map[string]interface{}{
 				"type":   ln.Type,
-				"config": ln.rawConfig,
+				"config": ln.RawConfig,
 			}
 			sanitizedListeners = append(sanitizedListeners, cleanLn)
 		}
@@ -211,6 +211,7 @@ func (c *SharedConfig) Sanitized() map[string]interface{} {
 			"stackdriver_project_id":                 c.Telemetry.StackdriverProjectID,
 			"stackdriver_location":                   c.Telemetry.StackdriverLocation,
 			"stackdriver_namespace":                  c.Telemetry.StackdriverNamespace,
+			"stackdriver_debug_logs":                 c.Telemetry.StackdriverDebugLogs,
 		}
 		result["telemetry"] = sanitizedTelemetry
 	}
